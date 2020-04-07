@@ -9,9 +9,19 @@ const defaultProps = {
         },
         plotOptions: {
             bar: {
-                columnWidth: "20%"
+                columnWidth: 64,
+                startingShape: 'flat',
+                endingShape: 'flat',
+                rangeBarOverlap: false
             }
-        }
+        },
+        xaxis: {
+            type: 'category',
+            categories: ['Nov', 'Dez', 'Jan'],
+            labels: {
+                show: true
+            }
+        },
     },
     series: [
         {
@@ -21,10 +31,14 @@ const defaultProps = {
         {
             name: 'Evolutivo',
             data: [10, 30, 10]
+        },
+        {
+            name: 'Não Evolutivo',
+            data: [25, 15, 10]
         }
     ]
 }
 
-const Bar = () => <Chart type='bar' height={500} {...defaultProps} />
+const Bar = () => <Chart type='bar' width={1000} height={500} {...defaultProps} />
 
 export default Bar;
